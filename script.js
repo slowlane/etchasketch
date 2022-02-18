@@ -18,7 +18,7 @@ function makeGrid(gridItems = 16){
                 //If has no background-color then set along with default brightness
                 if(e.target.style.backgroundColor === ""){
                     e.target.style.backgroundColor = "rgba(" + Math.random() * 255 + ", " + Math.random() * 255 + ", "  + Math.random() * 255 + ", 0.1)";
-                    e.target.style.filter = "brightness(50%)";
+                    e.target.style.filter = "brightness(100%)";
                 } else{
                     
                     const bGroundColor = e.target.style.backgroundColor;
@@ -30,7 +30,7 @@ function makeGrid(gridItems = 16){
                     opacityNumber++;
 
                     //Tone down brightness
-                    brightness = brightness - (opacityNumber * 5);
+                    brightness = brightness - (opacityNumber * 10);
 
                     
                     if(opacityNumber >= 9 || opacityNumber === 1){
