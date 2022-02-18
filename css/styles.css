@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 99vh;
 }
 
 .positionButtonDiv{
@@ -30,7 +31,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 960px;
-    height: 99vh;
+    height: 96vh;
     justify-content: center;
 
 }
