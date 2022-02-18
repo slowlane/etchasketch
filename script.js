@@ -15,7 +15,7 @@ function makeGrid(gridItems = 16){
             tempChild.classList.add("gridItem");
             temp.appendChild(tempChild);
             tempChild.addEventListener("mouseover", e => {
-
+                //If has no background-color then set along with default brightness
                 if(e.target.style.backgroundColor === ""){
                     e.target.style.backgroundColor = "rgba(" + Math.random() * 255 + ", " + Math.random() * 255 + ", "  + Math.random() * 255 + ", 0.1)";
                     e.target.style.filter = "brightness(50%)";
@@ -60,16 +60,9 @@ resetButton.addEventListener("click", e => {
 
     do{
         userReply = +prompt("What should the number of grids be? It has to be a number and below 100!");
-        console.log(typeof userReply + userReply);
     }
     while(typeof userReply != "number" || userReply > 100);
         
-    
-
-    gridItemArray.forEach(gridItem => {
-        gridItem.classList.remove("blue");
-    });
-
     containerDiv.innerHTML = "";
 
     makeGrid(userReply);
