@@ -15,7 +15,48 @@ function makeGrid(gridItems = 16){
             tempChild.classList.add("gridItem");
             temp.appendChild(tempChild);
             tempChild.addEventListener("mouseover", e => {
-                e.target.classList.add("blue");
+
+                if(e.target.style.backgroundColor === ""){
+                    e.target.style.backgroundColor = "rgba(" + Math.random() * 255 + ", " + Math.random() * 255 + ", "  + Math.random() * 255 + ", 0.1)";
+                    e.target.style.filter = "brightness(50%)";
+                } else{
+                    
+                    const bGroundColor = e.target.style.backgroundColor;
+                    const opacityValue = bGroundColor.substr(-2, 2);
+                    let opacityNumber = parseInt(opacityValue.slice(0, 1));
+                    let brightness = 50;
+                    
+                    
+                    opacityNumber++;
+                    brightness = brightness - (opacityNumber * 5);
+
+
+                    let mergeString = bGroundColor.substring(0, bGroundColor.length - 2);
+                    console.log(mergeString);
+                    console.log(opacityNumber);
+                    console.log(e.target.style.filter.brightness.opacityValue);
+                    
+                    
+                    if(opacityNumber >= 9 || opacityNumber === 1 || 
+                        e.target.style.filter.brightness === 0){
+                        opacityNumber++;
+                        brightness = brightness - (opacityNumber * 5);
+                        
+                        mergeString = bGroundColor.substring(0, bGroundColor.length - 4);
+                        
+                        e.target.style.backgroundColor = "" +  mergeString + "1)";
+                        e.target.style.filter = "brightness(0%)";
+                    }else{                   
+                    
+
+                        e.target.style.filter = "brightness(" + brightness + "%)";
+                    //e.target.style.filter = 
+                        
+                            console.log(mergeString + opacityNumber + ")");
+                        e.target.style.backgroundColor = mergeString + opacityNumber + ")";
+                    }
+                }
+                
             })
         }
 
